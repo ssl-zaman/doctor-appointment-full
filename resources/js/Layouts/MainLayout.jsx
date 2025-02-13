@@ -15,11 +15,11 @@ const MainLayout = ({children}) => {
             {/* navbar */}
             <Navbar />
             {/* main cotent  */}
-            <div className="flex-1">
+            <div className="flex-1 flex flex-col ">
                 {/* header top bar  */}
                 <Topbar />
                 {/* main cotent */}
-                <div className="bg-[#F1F5F9] w-full h-full p-10">
+                <div className="bg-[#F1F5F9] w-full flex-1 p-10">
 
                     {/* Show Success Message */}
                     {flash?.success && (
@@ -28,7 +28,7 @@ const MainLayout = ({children}) => {
                             </div>
                     )}
 
-                    <h2>Message for </h2>
+                    {/* <h2>Message for </h2> */}
 
 
                     {children}

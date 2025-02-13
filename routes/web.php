@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CompnaySettingController;
 use App\Http\Controllers\Admin\MedicineController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Setting\CompanySetting;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,7 +42,11 @@ Route::get('home', function(){
 // admin routes start
 
 Route::prefix('dashboard')->group(function(){
-    Route::resource('medicine', MedicineController::class);
+    Route::resource('medicine', controller: MedicineController::class);
+    Route::delete('dose/{dose}', [ MedicineController::class, 'dose_destroy'])->name('dose.destroy');
+    Route::resource('settings/company', CompnaySettingController::class);
+    Route::post('abc/{company}', [CompnaySettingController::class, 'update'])->name('abtest');
+    Route::resource('settings', SettingsController::class);
 });
 // admin routes end
 

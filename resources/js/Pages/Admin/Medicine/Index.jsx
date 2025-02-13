@@ -2,14 +2,20 @@ import MainLayout from "@/Layouts/MainLayout"
 import { usePage, Link, useForm } from "@inertiajs/react"
 import { TrashIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import Dose from "@/Components/ModelPage/Dose";
 
 
 const Index = () => {
     const [addMode, setAddMode] = useState(true);
 
     const {medicines} = usePage().props;
+    const {dose} = usePage().props;
+    const {doseTime} = usePage().props;
     const {flash} = usePage().props;
 
+
+    console.log(dose)
+    console.log(doseTime)
 
     const {data, setData, post, put, delete: deleteMedicine, errors, processing} = useForm({
         id: "",
@@ -137,7 +143,11 @@ const Index = () => {
                     </div>
             </div>
             {/* right side  */}
-            <div className="w-1/3 bg-white p-5"></div>
+            <div className="w-1/3 bg-white p-5">
+
+                        <Dose data={dose}/>
+
+            </div>
         </div>
 
 

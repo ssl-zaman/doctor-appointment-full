@@ -12,7 +12,7 @@ const Topbar = () => {
     const [showUserProfile, setShowUserProfile] = useState(false);
 
   return (
-    <div className="px-10 py-5 border-b w-full flex justify-between items-center">
+    <div className="px-10 py-5 border-b w-full flex justify-between items-center sticky top-0 bg-white">
         <div>
             <form action="">
                 <div className="flex gap-2 items-center">
@@ -46,7 +46,7 @@ const Topbar = () => {
 
                 { showUserProfile && (
                     <div className="absolute right-0 top-full mt-6 w-64 bg-white  p-5 shadow-lg space-y-3">
-                        
+
                         <div className="flex items-center gap-2 text-slate-600">
                             <UserIcon className="size-6"/>
                             <span className="text-sm">My Profile</span>
@@ -64,7 +64,7 @@ const Topbar = () => {
                             <UserIcon className="size-6"/>
                             <span className="text-sm">My Profile</span>
                         </div>
-                        
+
                     </div>
                 )}
             </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dose;
+use App\Models\DoseTime;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -16,7 +18,9 @@ class MedicineController extends Controller
         $medicines = Medicine::latest()->paginate(10);
 
         return Inertia::render('Admin/Medicine/Index', [
-            'medicines' => $medicines
+            'medicines' => $medicines,
+            'dose' => Dose::all(),
+            'doseTime' => DoseTime::all(),
         ]);
     }
 
@@ -52,5 +56,17 @@ class MedicineController extends Controller
     {
         $medicine->delete();
         return Redirect::route('medicine.index')->with('success', 'Medicine deleted successfully!');
+    }
+
+
+
+
+
+    // dose  method
+    public function dose_destroy(Dose $dose)
+    {
+        $dose->delete();
+
+        return Inertia::render('medicine.index');
     }
 }
