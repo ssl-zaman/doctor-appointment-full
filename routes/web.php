@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CompnaySettingController;
 use App\Http\Controllers\Admin\MedicineController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Setting\CompanySetting;
 use Illuminate\Foundation\Application;
@@ -47,6 +48,8 @@ Route::prefix('dashboard')->group(function(){
     Route::resource('settings/company', CompnaySettingController::class);
     Route::post('abc/{company}', [CompnaySettingController::class, 'update'])->name('abtest');
     Route::resource('settings', SettingsController::class);
+
+    Route::resource('slider', SliderController::class);
 });
 // admin routes end
 

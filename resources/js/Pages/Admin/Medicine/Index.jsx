@@ -33,7 +33,6 @@ const Index = () => {
                 data: data,
             });
         } else {
-
             post(route('medicine.store'), {
                 data: data,
             });

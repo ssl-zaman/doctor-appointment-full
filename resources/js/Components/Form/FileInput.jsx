@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 
-function FileInput({ label, id, name, onChange, placeholder, defaultFile }) {
+function FileInput({
+  label,
+  id,
+  name,
+  onChange,
+  placeholder,
+  defaultFile,
+  error,  // New prop for validation errors
+}) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(defaultFile ? defaultFile : null);
-
 
   console.log(preview);
 
@@ -26,7 +33,10 @@ function FileInput({ label, id, name, onChange, placeholder, defaultFile }) {
 
   return (
     <div className="w-full mx-auto my-5">
-      <label htmlFor={id} className="block mb-2 text-base font-medium text-gray-900 dark:text-white">
+      <label
+        htmlFor={id}
+        className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
+      >
         {label}
       </label>
       <input
@@ -34,7 +44,7 @@ function FileInput({ label, id, name, onChange, placeholder, defaultFile }) {
         id={id}
         name={name}
         onChange={handleFileChange}
-        className="p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        className={`p-2 w-full text-sm text-gray-900 border rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 ${error ? 'border-red-500' : 'border-gray-300'}`}
         aria-describedby={`${id}_help`}
       />
       {placeholder && (
@@ -58,6 +68,13 @@ function FileInput({ label, id, name, onChange, placeholder, defaultFile }) {
             alt="Preview"
             className="w-32 h-32 rounded border border-gray-300"
           />
+        </div>
+      )}
+
+      {/* Display validation error */}
+      {error && (
+        <div className="mt-2 text-sm text-red-500">
+          <strong>{error}</strong>
         </div>
       )}
     </div>

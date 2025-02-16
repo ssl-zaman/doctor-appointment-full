@@ -100,7 +100,7 @@ class CompnaySettingController extends Controller
 
 
         // Redirect back with a success message
-        return redirect()->route('company.index')->with('success', 'Company settings updated successfully.');
+        return redirect()->route('company.index')->with('flash', 'Company settings updated successfully.');
 
 
     }

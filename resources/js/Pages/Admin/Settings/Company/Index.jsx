@@ -24,10 +24,6 @@ const Index = ({ company_setting }) => {
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     setData(name, files[0]);
-
-    console.log(files);
-    console.log(data)
-
   };
 
 
@@ -42,8 +38,7 @@ const Index = ({ company_setting }) => {
         formData.append(key, data[key]);
     });
 
-    // Log FormData to check its contents (check if files are included)
-    console.log([...formData]);
+
 
     // Send the FormData via PUT request
     // post(route('abtest', data.id), {
@@ -57,7 +52,7 @@ const Index = ({ company_setting }) => {
         forceFormData: true,  // Ensure it's sent as FormData
     }).then(() => {
         // Log errors after the request completes (if any)
-        console.log(errors);
+        // console.log(errors);
     });
 };
 
