@@ -8,7 +8,7 @@ import DropDown from './DropDown';
 const Navbar = () => {
   return (
     <div className="w-[300px] bg-slate-900 h-screen p-5 sticky top-0">
-   
+
                 <Link href="/dashboard" className="text-bold text-3xl text-center text-white mb-10">TailAdmin</Link>
                 <nav className='w-full flex flex-col gap-3'>
 
@@ -17,18 +17,26 @@ const Navbar = () => {
                     <DropDown name={'Dashboard'} open={false} Icon={Squares2X2Icon}>
                         <div className='mt-4 flex flex-col gap-2'>
                             <Link href={route('medicine.index')} className='text-white opacity-50'>Medicine </Link>
-                            <Link className='text-white opacity-50'>About </Link>
-                            <Link className='text-white opacity-50'>About </Link>
-                            <Link className='text-white opacity-50'>About </Link>
+                            <Link className='text-white opacity-50'>Dose </Link>
+                            <Link className='text-white opacity-50'>Dose Time </Link>
+
                         </div>
                     </DropDown>
 
-                    <DropDown name={'Ecommerce'} open={false} Icon={CubeIcon}>
+                    <DropDown name={'Doctor'} open={false} Icon={CubeIcon}>
                         <div className='mt-4 flex flex-col gap-2'>
-                            <Link className='text-white opacity-50'>About </Link>
-                            <Link className='text-white opacity-50'>About </Link>
-                            <Link className='text-white opacity-50'>About </Link>
-                            <Link className='text-white opacity-50'>About </Link>
+                            <Link href={route('chambers.index')} className='text-white opacity-50'>Chamber</Link>
+
+                        </div>
+                    </DropDown>
+
+                    <DropDown name={'Features'} open={false} Icon={CubeIcon}>
+                        <div className='mt-4 flex flex-col gap-2'>
+                            <Link href={route('slider.index')} className='text-white opacity-50'>Slider</Link>
+                            <Link href={route('services.index')} className='text-white opacity-50'>Services</Link>
+                            <Link href={route('solutions.index')} className='text-white opacity-50'>Solutions</Link>
+                            {/* <Link className='text-white opacity-50'>About </Link>
+                            <Link className='text-white opacity-50'>About </Link> */}
                         </div>
                     </DropDown>
 
