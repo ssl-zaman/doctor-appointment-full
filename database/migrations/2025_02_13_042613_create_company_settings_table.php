@@ -20,11 +20,14 @@ return new class extends Migration
             $table->string('whats_app')->nullable();
             $table->string('email')->unique();
             $table->text('address')->nullable();
+            $table->json('bookbyphone')->nullable();
+            $table->text('work_day')->nullable();
+            $table->text('available_time')->nullable();
             $table->string('company_logo')->nullable();
             $table->string('company_fav_icon')->nullable();
             $table->string('admin_fav_icon')->nullable();
             $table->string('website_link')->nullable();
-            $table->string('google_tag')->nullable();
+            $table->longText('google_tag')->nullable();
             $table->string('facebook_link')->nullable();
             $table->string('youtube_link')->nullable();
             $table->string('linkdin_link')->nullable();
@@ -32,6 +35,7 @@ return new class extends Migration
             $table->string('tiktok_link')->nullable();
             $table->string('instagram_link')->nullable();
             $table->text('about')->nullable();
+            $table->string('signature')->nullable();
             $table->string('footer_info');
             $table->timestamps();
         });

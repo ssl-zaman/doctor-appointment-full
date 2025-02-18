@@ -19,6 +19,9 @@ class CompanySetting extends Model
         'whats_app',
         'email',
         'address',
+        'bookbyphone',
+        'work_day',
+        'available_time',
         'company_logo',
         'company_fav_icon',
         'admin_fav_icon',
@@ -31,6 +34,7 @@ class CompanySetting extends Model
         'google_tag',
         'youtube_link',
         'about',
+        'signature',
         'footer_info'
     ];
 }

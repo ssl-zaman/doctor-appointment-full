@@ -2,7 +2,7 @@ import FileInput from "@/Components/Form/FileInput";
 import InputField from "@/Components/Form/InputField";
 import TextareaInput from "@/Components/Form/TextareaInput";
 import MainLayout from "@/Layouts/MainLayout";
-import { useForm } from "@inertiajs/react";
+import { useForm, router } from "@inertiajs/react";
 
 const Index = ({ company_setting }) => {
   // Initialize form state with `useForm`
@@ -10,7 +10,7 @@ const Index = ({ company_setting }) => {
     ...company_setting.data,
   });
 
-  console.log(errors);
+  console.log(data);
 
   // Handle input changes correctly
   const handleChange = (e) => {
@@ -38,22 +38,22 @@ const Index = ({ company_setting }) => {
         formData.append(key, data[key]);
     });
 
-
-
     // Send the FormData via PUT request
     // post(route('abtest', data.id), {
     //     data: formData,
     //     forceFormData: true,  // Ensure it's sent as FormData
     // });
 
-    post(route('abtest', data.id), {
-        preserveScroll: true,
-        data: formData,
-        forceFormData: true,  // Ensure it's sent as FormData
-    }).then(() => {
-        // Log errors after the request completes (if any)
-        // console.log(errors);
-    });
+    router.post(route("abtest", data.id), formData );
+
+    // post(route('abtest', data.id), {
+    //     preserveScroll: true,
+    //     data: formData,
+    //     forceFormData: true,  // Ensure it's sent as FormData
+    // }).then(() => {
+    //     // Log errors after the request completes (if any)
+    //     // console.log(errors);
+    // });
 };
 
 
@@ -64,7 +64,7 @@ const Index = ({ company_setting }) => {
       <form onSubmit={handleSubmit}  enctype="multipart/form-data" className="w-full mx-auto flex flex-col gap-10   p-10 ">
 
         <div className="flex gap-10">
-            <div className="w-1/2 bg-white p-5 rounded-md shadow">
+            <div className="w-1/2 bg-white p-5 rounded-md shadow space-y-10">
                 <InputField
                 label="Company Name"
                 name="company_name"
@@ -95,6 +95,32 @@ const Index = ({ company_setting }) => {
             onChange={handleChange}
             placeholder="Enter hotline"
             />
+
+            <InputField
+            label="Book phone number"
+            name="bookbyphone"
+            value={data.bookbyphone || ""}
+            onChange={handleChange}
+            placeholder="Enter Booking phone number"
+            />
+
+            <InputField
+                label="Working Day"
+                name="work_day"
+                value={data.work_day || ""}
+                onChange={handleChange}
+                placeholder="example: Monday to Friday"
+            />
+
+            <InputField
+                label="Available Time"
+                name="available_time"
+                value={data.available_time || ""}
+                onChange={handleChange}
+                placeholder="example: 9PM to 10PM"
+            />
+
+
             <InputField
             label="WhatsApp"
             name="whats_app"
@@ -128,18 +154,34 @@ const Index = ({ company_setting }) => {
             />
 
             <TextareaInput
+                label="Google Location"
+                name="google_tag"
+                value={data.google_tag || ""}
+                onChange={handleChange}
+                placeholder="Enter only iframe src google map link"
+            />
+
+            <TextareaInput
             label="About"
             name="about"
             value={data.about || ""}
             onChange={handleChange}
             placeholder="Enter about text"
             />
+
+            <FileInput
+                label="Signature"
+                name="signature"
+                onChange={handleFileChange}
+                defaultFile={data.signature}
+            />
+
             <TextareaInput
-            label="Footer Info"
-            name="footer_info"
-            value={data.footer_info || ""}
-            onChange={handleChange}
-            placeholder="Enter footer information"
+                label="Footer Info"
+                name="footer_info"
+                value={data.footer_info || ""}
+                onChange={handleChange}
+                placeholder="Enter footer information"
             />
 
 
@@ -203,14 +245,6 @@ const Index = ({ company_setting }) => {
                         />
 
 
-
-                        <TextareaInput
-                            label="Google Tag"
-                            name="google_tag"
-                            value={data.google_tag || ""}
-                            onChange={handleChange}
-                            placeholder="Enter Google Tag"
-                        />
 
                 </div>
 

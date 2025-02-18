@@ -17,8 +17,8 @@ const Navbar = () => {
                     <DropDown name={'Dashboard'} open={false} Icon={Squares2X2Icon}>
                         <div className='mt-4 flex flex-col gap-2'>
                             <Link href={route('medicine.index')} className='text-white opacity-50'>Medicine </Link>
-                            <Link className='text-white opacity-50'>Dose </Link>
-                            <Link className='text-white opacity-50'>Dose Time </Link>
+                            <Link href={route('dose.index')} className='text-white opacity-50'>Dose </Link>
+                            <Link href={route('dosetime.index')} className='text-white opacity-50'>Dose Time </Link>
 
                         </div>
                     </DropDown>

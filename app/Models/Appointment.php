@@ -14,7 +14,8 @@ class Appointment extends Model
         'name',
         'age',
         'number',
-        'schedule',
+        // 'schedule',
+        'appointment_date',
         'visited'
     ];
 }

@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\CompnaySettingController;
+use App\Http\Controllers\Admin\DoseController;
+use App\Http\Controllers\Admin\DoseTimeController;
 use App\Http\Controllers\Admin\MedicineController;
+use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ChamberController;
@@ -52,8 +55,15 @@ Route::view('home2', 'test');
 // admin routes start
 
 Route::prefix('dashboard')->group(function(){
+
+    Route::resource('patients', PatientController::class);
+
+
+
     Route::resource('medicine', controller: MedicineController::class);
-    Route::delete('dose/{dose}', [ MedicineController::class, 'dose_destroy'])->name('dose.destroy');
+    Route::resource('dose', controller: DoseController::class);
+    Route::resource('dosetime', controller: DoseTimeController::class);
+    // Route::delete('dose/{dose}', [ MedicineController::class, 'dose_destroy'])->name('dose.destroy');
     Route::resource('settings/company', CompnaySettingController::class);
     Route::post('abc/{company}', [CompnaySettingController::class, 'update'])->name('abtest');
     Route::resource('settings', SettingsController::class);
@@ -67,6 +77,8 @@ Route::prefix('dashboard')->group(function(){
 
 
     Route::resource('chambers', ChamberController::class);
+
+    Route::inertia('pdf', 'Pdf');
 });
 // admin routes end
 

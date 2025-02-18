@@ -1,7 +1,7 @@
 <x-main-layout>
 
 <!-- hero booking section  -->
-<section class="relative w-full h-[800px] slider z-[100]">
+<section class="relative w-full h-[800px] slider z-[1] bg-[#F2F2F2]">
     <!-- slider 1  -->
     @foreach ($sliders as $item)
         <div class="w-full h-full slide z-[100]">
@@ -172,37 +172,36 @@
 
 </section>
 
-<section class="bg-[#F2F2F2] p-5 md:p-10 mt-[40px] md:-mt-[120px] z-[1000] bg-transparent">
+<section class="bg-[#F2F2F2] p-5 md:p-10 mt-[40px] md:-mt-[120px]  relative" >
     <div class="container flex flex-col md:flex-row">
-        <div class="w-full md:w-1/2 relative z-[1500] -mr-[50px]">
-            <div class="z-[1500] bg-[#1055AE] p-5  md:p-10  md:absolute md:top-1/2 md:transform md:-translate-y-1/2 md:right-0">
+        <div class="w-full md:w-1/2 relative -mr-[50px] ">
+            <div class="z-[150] bg-[#1055AE] p-5  md:p-10  md:absolute md:top-1/2 md:transform md:-translate-y-1/2 md:right-0">
                 <div class="flex flex-col items-center justify-center gap-5">
                     <div class="w-[150px] h-[3px] bg-pink-500"></div>
                         <blockquote>
-                            <P class="text-white text-2xl quote">My family trusts Dr Fischer completely, he’s been with us for years and as helped us on numerous occasions</P>
+                            <P class="text-white text-2xl quote tracking-wide">{{ company_info('about')}}</P>
                         </blockquote>
-
                     <div class="w-[150px] h-[3px] bg-pink-500"></div>
-                    <img src="./assets/img-signature.png" alt="">
+                    <img src="{{ company_info_file('signature') }}" alt="">
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/2 bg-white flex flex-col gap-10 pl-5 md:pl-[100px] p-5 md:p-20 z-[1000]">
-            <h2 class="text-3xl font-semibold text-blue-800">Book Your Appointment</h2>
+        <div class="w-full md:w-3/5 bg-white flex flex-col gap-10 relative z-[120] pl-5 md:pl-[100px] p-5 md:px-20 md:pt-10 md:pb-10 shadow-md">
+            <h2 class="text-3xl font-semibold text-blue-800 border-b border-gray-200 pb-3">Book Your Appointment</h2>
             <div class="flex flex-col md:flex-row gap-10 z-0">
-                <img class="w-full md:w-1/2" src="./assets/booking1_min.png" alt=""/>
+                <img class="w-full md:w-1/2" src="{{ asset('frontend/assets/booking1_min.png') }}" alt=""/>
                 <div class="w-full md:w-1/2 flex flex-col gap-5">
                     <div class="flex flex-col w-full">
                         <label for="phone" class="text-sm text-slate-700"> Name</label>
-                        <input type="tel" id="phone" class="border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <input type="tel" id="phone" class="border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md">
                     </div>
                     <div class="flex flex-col w-full">
                         <label for="phone" class="text-sm text-slate-700"> Phone</label>
-                        <input type="tel" id="phone" class="border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <input type="tel" id="phone" class="border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md">
                     </div>
                     <div class="flex flex-col w-full">
                         <label for="date" class="text-sm text-slate-700">Preferred Date</label>
-                        <input type="date" id="date" class="w-full border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <input type="date" id="date" class="w-full border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md">
                     </div>
                     <button class="bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-400 transition duration-300">Book Appointment Now</button>
                 </div>
@@ -212,7 +211,7 @@
 </section>
 
 <!-- servie list start  -->
- <section class="bg-[#F2F2F2] py-20 px-5">
+ <section class="bg-[#F2F2F2] py-20 px-5" >
     <div class="container space-y-10">
         <div class="flex flex-col sm:flex-row justify-between items-center text-center md:text-left sm:items-end">
             <div>
@@ -319,7 +318,7 @@
 
 
 <!-- Booking Section Start -->
-<section class="relative w-full h-auto md:h-[800px] flex flex-col md:flex-row items-center bg-cover bg-no-repeat"
+{{-- <section class="relative w-full h-auto md:h-[800px] flex flex-col md:flex-row items-center bg-cover bg-no-repeat"
 style="
 background-image: url('./assets/chember1.jpg'),
                   linear-gradient(0deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,1) 100%);"
@@ -371,7 +370,7 @@ background-image: url('./assets/chember1.jpg'),
             </form>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- Booking Section End -->
 
 
@@ -429,7 +428,7 @@ background-image: url('./assets/chember1.jpg'),
             <!-- map section -->
             <div class="w-full sm:w-2/3 h-[400px]  md:h-[800px] ">
                 <!-- <img class="h-full" src="./assets/map.png" alt=""> -->
-                <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8881443927553!2d90.38322967532494!3d23.75136787866979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c766dae163a9%3A0x6f0612fa8107b57c!2z4Ka44KeN4Kau4Ka-4Kaw4KeN4KafIOCmuOCmq-Cmn-Cmk-Cmr-CmvOCnjeCmr-CmvuCmsCDgpo_gprLgpp_gpr_gpqHgpr8u!5e0!3m2!1sbn!2sbd!4v1739272984442!5m2!1sbn!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="w-full h-full" src="{{ company_info('google_tag') }}"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             </div>
             <!-- booking section  -->
@@ -476,10 +475,10 @@ background-image: url('./assets/chember1.jpg'),
                     <div class="flex p-2 border-b border-gray-500 justify-between items-center">
                         <div class="text-white">Monday</div>
                         <div class="text-white opacity-50">8pm-9pm</div>
-                        <div class="bg-white rounded-md px-3 py-1">
+                        <button onclick="openPopup()" class="bg-white rounded-md px-3 py-1">
                             <span>Book</span>
                             <i class="fa-solid fa-clock"></i>
-                        </div>
+                        </button>
                     </div>
                 </div>
 
@@ -540,45 +539,56 @@ background-image: url('./assets/chember1.jpg'),
         <div class="py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 lg:gap-16">
             <div class="flex flex-col items-center gap-3 text-center info_animation">
                 <div class="text-5xl text-purple-800">
-                    <i class="fa-solid fa-notes-medical"></i>
+                    {{-- <i class="fa-solid fa-notes-medical"></i> --}}
+                    <img src="{{ asset('frontend/assets/medical.png') }}" alt="">
                 </div>
                 <h3 class="text-2xl text-slate-900">Emergency Phone</h3>
                 <div class="flex flex-col">
-                    <div class="text-md text-slate-600">415-205-5550</div>
+                    <div class="text-md text-slate-600">{{ company_info('phone') }}</div>
                     <div class="text-md text-slate-600">Call us Anytime 24/7</div>
                 </div>
             </div>
 
             <div class="flex flex-col items-center gap-3 text-center info_animation">
                 <div class="text-5xl text-purple-800">
-                    <i class="fa-solid fa-notes-medical"></i>
+                    {{-- <i class="fa-solid fa-notes-medical"></i> --}}
+                    <img src="{{ asset('frontend/assets/location.png') }}" alt="">
                 </div>
-                <h3 class="text-2xl text-slate-900">Emergency Phone</h3>
+                <h3 class="text-2xl text-slate-900">Address</h3>
                 <div class="flex flex-col">
-                    <div class="text-md text-slate-600">415-205-5550</div>
-                    <div class="text-md text-slate-600">Call us Anytime 24/7</div>
+                    <div class="text-md text-slate-600">{{ company_info('address') }}</div>
+
                 </div>
             </div>
 
             <div class="flex flex-col items-center gap-3 text-center info_animation">
                 <div class="text-5xl text-purple-800">
-                    <i class="fa-solid fa-notes-medical"></i>
+                    {{-- <i class="fa-solid fa-notes-medical"></i> --}}
+                    <img src="{{ asset('frontend/assets/dentist-chair.png') }}" alt="">
                 </div>
-                <h3 class="text-2xl text-slate-900">Emergency Phone</h3>
+                <h3 class="text-2xl text-slate-900">Book By Phone</h3>
                 <div class="flex flex-col">
-                    <div class="text-md text-slate-600">415-205-5550</div>
-                    <div class="text-md text-slate-600">Call us Anytime 24/7</div>
+
+                        @php
+                            $phoneNumber = json_decode(company_info('bookbyphone'));
+                        @endphp
+
+                        @foreach ($phoneNumber as $item)
+                            <div class="text-md text-slate-600">{{ $item }}</div>
+                        @endforeach
+
                 </div>
             </div>
 
             <div class="flex flex-col items-center gap-3 text-center info_animation">
                 <div class="text-5xl text-purple-800">
-                    <i class="fa-solid fa-notes-medical"></i>
+                    {{-- <i class="fa-solid fa-notes-medical"></i> --}}
+                    <img src="{{ asset('frontend/assets/email.png') }}" alt="">
                 </div>
-                <h3 class="text-2xl text-slate-900">Emergency Phone</h3>
+                <h3 class="text-2xl text-slate-900">Email US</h3>
                 <div class="flex flex-col">
-                    <div class="text-md text-slate-600">415-205-5550</div>
-                    <div class="text-md text-slate-600">Call us Anytime 24/7</div>
+                    <div class="text-md text-slate-600">{{ company_info('email') }}</div>
+                    {{-- <div class="text-md text-slate-600">Call us Anytime 24/7</div> --}}
                 </div>
             </div>
         </div>

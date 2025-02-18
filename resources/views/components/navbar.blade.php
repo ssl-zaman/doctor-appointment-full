@@ -6,17 +6,23 @@
       </a>
       <div class="flex items-center gap-10">
           <div class="flex items-center gap-3">
-              <div class="text-4xl text-blue-400"><i class="fa-solid fa-clock "></i></div>
+              <div class="text-4xl text-blue-400">
+                {{-- <i class="fa-solid fa-clock "></i> --}}
+                <img class="w-[45px] h-[45px]" src="{{ asset('frontend/assets/medical.png')}}" alt="">
+            </div>
               <div>
-                  <div class="text-2xl text-slate-800 font-semibold font-sans">415-205-5550</div>
+                  <div class="text-2xl text-slate-800 font-semibold font-sans">{{ company_info('phone')}}</div>
                   <div class="text-sm text-slate-600">24/7 Emergency Phone</div>
               </div>
           </div>
           <div class="flex items-center gap-3">
-              <div class="text-4xl text-blue-400"><i class="fa-solid fa-clock "></i></div>
+              <div class="text-4xl text-blue-400">
+                {{-- <i class="fa-solid fa-clock "></i> --}}
+                <img class="w-[45px] h-[45px]" src="{{ asset('frontend/assets/24-hours.png')}}" alt="">
+            </div>
               <div>
-                  <div class="text-2xl text-slate-800 font-semibold font-sans">Monday - Friday </div>
-                  <div class="text-sm text-slate-600">9AM - 9PM</div>
+                  <div class="text-2xl text-slate-800 font-semibold font-sans">{{ company_info('work_day')}} </div>
+                  <div class="text-sm text-slate-600">{{ company_info('available_time')}}</div>
               </div>
           </div>
 

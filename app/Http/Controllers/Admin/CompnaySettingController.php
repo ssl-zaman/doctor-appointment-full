@@ -30,6 +30,9 @@ class CompnaySettingController extends Controller
             'company_name' => 'required|string|max:255',
             'company_title' => 'required|string|max:255',
             'phone' => 'nullable|string|max:25',
+            'bookbyphone' => 'nullable|string|max:100',
+            'work_day' => 'nullable|string|max:100',
+            'available_time' => 'nullable|string|max:100',
             'hotline' => 'nullable|string|max:25',
             'whats_app' => 'nullable|string|max:25',
             'email' => 'required|email|max:255',
@@ -46,6 +49,7 @@ class CompnaySettingController extends Controller
             'tiktok_link' => 'nullable|url|max:255',
             'instagram_link' => 'nullable|url|max:255',
             'about' => 'nullable|string|max:1000',
+            'signature' => 'nullable',
             'footer_info' => 'nullable|string|max:1000',
         ]);
 
@@ -92,11 +96,26 @@ class CompnaySettingController extends Controller
         }
 
 
+        if ($request->hasFile('signature')) {
+            if ($companySetting->signature) {
+                Storage::disk('public')->delete($companySetting->signature);
+            }
+            $validated['signature'] = $request->file('signature')->store('signature', 'public');
+        }else {
+            unset($validated['signature']);
+        }
+
+
+
+
+        $bookbyphoneArray = array_map('trim', explode(',', $request->bookbyphone));
+
+        // dd($bookbyphoneArray);
+
+        $validated = [...$validated, 'bookbyphone' => json_encode($bookbyphoneArray)];
+
         // Update the company setting data
         $companySetting->update($validated);
-
-
-    
 
 
         // Redirect back with a success message

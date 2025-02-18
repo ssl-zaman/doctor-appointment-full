@@ -49,7 +49,7 @@
                     <div class="h-[4px] w-[80px] bg-pink-500"></div>
                 </div>
                 <div class="relative w-full h-auto md:h-[200px] rounded-lg overflow-hidden">
-                    <img class="w-full h-full  min-w-[250px]" src="./assets/awards_right.png" alt="Awards">
+                    <img class="w-full h-full  min-w-[250px]" src="{{ asset('frontend/assets/awards_right.png') }}" alt="Awards">
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-slate-500 text-lg font-semibold p-4">
                         <h2 class="text-lg md:text-xl">🏆 Best Doctor 2023</h2>
                         <h2 class="text-lg md:text-xl">🏅 Best ABC 2023</h2>
@@ -94,6 +94,47 @@
         </div>
       </div>
   </footer>
+
+
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md hidden z-[9999999]">
+  </div>
+
+<!-- Popup Box -->
+<div id="popup" class="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white  w-[400px] z-[10000000] p-4 rounded-lg shadow-lg hidden">
+    <button onclick="closePopup()" class="absolute top-2 right-2 bg-black text-white px-3 py-1 rounded">X</button>
+    {{-- <p class="text-white text-center mt-20 text-xl">This is a popup</p> --}}
+    <form action="" class="p-5 flex flex-col gap-5">
+        <div class="flex flex-col w-full">
+            <label for="phone" class="text-sm text-slate-700"> Name</label>
+            <input type="tel" id="phone" class="border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md">
+        </div>
+        <div class="flex flex-col w-full">
+            <label for="phone" class="text-sm text-slate-700"> Phone</label>
+            <input type="tel" id="phone" class="border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md">
+        </div>
+        <div class="flex flex-col w-full">
+            <label for="date" class="text-sm text-slate-700">Preferred Date</label>
+            <input type="date" id="date" class="w-full border bg-white rounded border-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md">
+        </div>
+        <button class="bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-400 transition duration-300">Book Appointment Now</button>
+    </form>
+</div>
+
+<!-- Button to Open Popup -->
+{{-- <button onclick="openPopup()" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Open Popup</button> --}}
+
+<script>
+    function openPopup() {
+        document.getElementById("overlay").classList.remove("hidden");
+        document.getElementById("popup").classList.remove("hidden");
+    }
+
+    function closePopup() {
+        document.getElementById("overlay").classList.add("hidden");
+        document.getElementById("popup").classList.add("hidden");
+    }
+</script>
+
 
 
 

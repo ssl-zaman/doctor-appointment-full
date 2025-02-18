@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->string('age', 3);
+            $table->string('age', 3)->nullable();
             $table->string('number', 15);
-            $table->string('schedule')->nullable();
+            // $table->string('schedule')->nullable();
+            $table->date('appointment_date')->nullable();
             $table->boolean('visited')->default(false);
             $table->timestamps();
         });
